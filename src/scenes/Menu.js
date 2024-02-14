@@ -36,6 +36,12 @@ class Menu extends Phaser.Scene{
         this.add.text(game.config.width/2, game.config.height/2.8,`Previous Run: ${timeSurv} Seconds`, menuConfig).setOrigin(0.5)
         this.add.text(game.config.width/2, game.config.height/2,`High Score: ${highScore} Seconds`, menuConfig).setOrigin(0.5)
 
+        menuConfig.fontSize = '15px'
+        menuConfig.color= "#00FF00"
+        this.add.text(140, 10,"Made by Max-Emilien Kluiwstra-Descalle", menuConfig).setOrigin(0.5)
+
+
+
     
     }
 
