@@ -143,7 +143,7 @@ class Play extends Phaser.Scene{
 
     timerUpdate(){
         timeSurv = timeSurv + 1
-        console.log(timeSurv)
+        //console.log(timeSurv)
     }
 
 

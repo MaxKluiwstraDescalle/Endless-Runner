@@ -6,8 +6,7 @@ class Menu extends Phaser.Scene{
         let menuConfig= {
             fontFamily: 'Georgia',
             fontSize: '144px',
-            backgroundColor: '#000',
-            color: '#ADD8E6',
+            color: '#FF0000',
             align: 'right',
             padding:{
                 top: 5,
@@ -16,15 +15,19 @@ class Menu extends Phaser.Scene{
             fixedWidth: 0
         }
 
-        this.add.text(game.config.width/2, game.config.height/4 - borderUISize - borderPadding, 'Game Name', menuConfig).setOrigin(0.5)
+        if(timeSurv>highScore){
+            highScore= timeSurv
+        }
+
+        this.add.text(game.config.width/2, game.config.height/4 - borderUISize - borderPadding, 'Death Ball', menuConfig).setOrigin(0.5)
         menuConfig.fontSize = '32px'
-        menuConfig.backgroundColor = '#000'
-        menuConfig.color = '#FFFFFF'
+
+        menuConfig.color = '#FFFF00'
         
-        this.add.text(game.config.width/2, game.config.height/2, 'Use Arrows Keys to Move, Stay away from the edges!', menuConfig).setOrigin(0.5)
-        menuConfig.backgroundColor = '#000'
-        menuConfig.color = '#FFFFFF'
-        this.add.text(game.config.width/2, game.config.height/2 + borderUISize + borderPadding, 'Press SPACE to Start', menuConfig).setOrigin(0.5)
+        this.add.text(game.config.width/2, game.config.height/1.3, 'Use Arrows Keys to Move, Dont get hit by the orbs!', menuConfig).setOrigin(0.5)
+
+        menuConfig.color = '#FFFF00'
+        this.add.text(game.config.width/2, game.config.height/1.2 + borderUISize + borderPadding, 'Press SPACE to Start', menuConfig).setOrigin(0.5)
 
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE)
         keyRESET = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R)
@@ -33,6 +36,10 @@ class Menu extends Phaser.Scene{
         //keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP)
         //keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN)
         
+        menuConfig.color = '#ADD8E6'
+        this.add.text(game.config.width/2, game.config.height/2.8,`Previous Run: ${timeSurv} Seconds`, menuConfig).setOrigin(0.5)
+        this.add.text(game.config.width/2, game.config.height/2,`High Score: ${highScore} Seconds`, menuConfig).setOrigin(0.5)
+
     
     }
 
