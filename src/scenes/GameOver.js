@@ -21,9 +21,8 @@ class GameOver extends Phaser.Scene{
         menuConfig.color= '#ADD8E6'
         this.add.text(game.config.width/2, game.config.height/3 - borderUISize - borderPadding, 'Credits', menuConfig).setOrigin(0.5)
         menuConfig.fontSize = '40px'
-        menuConfig.color = '#D3D3D3'
-        
-        this.add.text(game.config.width/4, game.config.height/2.8, 'Audio and Music', menuConfig).setOrigin(0.5)
+        menuConfig.color = '#00FF00'
+        this.add.text(game.config.width/4, game.config.height/2.8, 'Audio and Music:', menuConfig).setOrigin(0.5)
         menuConfig.fontSize='20px'
         this.add.text(game.config.width/4, game.config.height/2, 'https://jfxr.frozenfractal.com/', menuConfig).setOrigin(0.5)
         this.add.text(game.config.width/4, game.config.height/1.5, 'https://uppbeat.io/browse/music/lo-fi-beats', menuConfig).setOrigin(0.5)
