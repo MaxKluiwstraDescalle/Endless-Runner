@@ -3,10 +3,7 @@
 // 
 //
 
-// keep me honest
 'use strict';
-
-// define and configure main Phaser game object
 let config = {
     parent: 'endGame',
     type: Phaser.AUTO,
@@ -18,7 +15,7 @@ let config = {
     physics: {
         default: 'arcade',
         arcade: {
-            //debug: true,
+            debug: true,
             gravity: {
                 x: 0,
                 y: 0
@@ -30,4 +27,9 @@ let config = {
 
 let game = new Phaser.Game(config)
 
-let keySPACE, keyRESET 
+let borderUISize = game.config.height / 15
+let borderPadding = borderUISize / 3
+
+let timeSurv = 0
+
+let keySPACE, keyRESET//, keyRIGHT, keyLEFT, keyUP, keyDOWN 
