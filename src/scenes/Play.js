@@ -43,17 +43,10 @@ class Play extends Phaser.Scene{
         this.bgMusic.play()
         
         
-        //mon.setColliderWorldBounds(true)
-        
-        //mon.setMaxvelocity(0,1000)
-        
-        
-        //console.log(this.mon)
         this.cameras.main.setBounds(0,0,this.map.width, this.map.height)
         this.cameras.main.startFollow(this.mon, true, 0.5, 0.5)
         this.physics.world.setBounds(0, 0, this.map.width, this.map.height)
 
-        //console.log(this.mon)
 
 
         let timerConfig= {
@@ -75,53 +68,46 @@ class Play extends Phaser.Scene{
     }
 
     update(){
-        
-        
-        //console.log(this.time.now/1000)
-        //console.log(this.monFSM)
+ 
         this.monFSM.step()
         this.times = Math.floor(this.time.now/1000)
         this.timer.setText(timeSurv)
 
-        
-
         this.physics.world.collide(this.mon, this.orbGroup, this.orbCollision, null, this)
         this.newOrb()
-
-        //this.update(time, delta)
-
-        
-        
+  
     }
 
     newOrb(){
         let orb = this.physics.add.sprite(this.map.height-5, this.map.width/2,'orb').setOrigin(0.5)
+        orb.body.setCircle(orb.width/2)
         orb.body.velocity.set(Phaser.Math.Between(0,200),Phaser.Math.Between(0,200)) 
 
         const MaxX = this.map.width - orb.width
         const MaxY = this.map.height - orb.height
-        //console.log(this.time.now/1000 % 1)
         if((this.time.now/1000%1 >0.95)){
             var randNum = Math.floor(Math.random()*4)+1
 
             if(randNum == 1){
                 orb = this.physics.add.sprite(0, Phaser.Math.Between(0,MaxY),'orb').setOrigin(0.5)
                 orb.body.velocity.set(Phaser.Math.Between(0,200),Phaser.Math.Between(0,200)) 
+                orb.body.setCircle(orb.width/2)
+
                 
                 
             }else if(randNum ==2){
                 orb = this.physics.add.sprite(MaxX, Phaser.Math.Between(0, MaxY),'orb').setOrigin(0.5)
-                //orb.body.velocity.set(-200, 200)
+                orb.body.setCircle(orb.width/2)
                 orb.body.velocity.set(Phaser.Math.Between(0,-200),Phaser.Math.Between(0,200))
  
             }else if(randNum == 3){
                orb = this.physics.add.sprite(Phaser.Math.Between(0,MaxX), 0, 'orb').setOrigin(0.5)
-               //orb.body.velocity.set(200, 200)
+               orb.body.setCircle(orb.width/2)
                orb.body.velocity.set(Phaser.Math.Between(50,200),Phaser.Math.Between(50,200))
 
             }else if(randNum == 4){
                 orb = this.physics.add.sprite(Phaser.Math.Between(0, MaxX), MaxY, 'orb').setOrigin(0.5)
-                //orb.body.velocity.set(200,-200)
+                orb.body.setCircle(orb.width/2)
                 orb.body.velocity.set(Phaser.Math.Between(50,200),Phaser.Math.Between(-50,-200))
             }
 
@@ -143,7 +129,7 @@ class Play extends Phaser.Scene{
 
     timerUpdate(){
         timeSurv = timeSurv + 1
-        //console.log(timeSurv)
+
     }
 
 

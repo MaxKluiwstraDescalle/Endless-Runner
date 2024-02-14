@@ -16,6 +16,8 @@ I am not an artist so I was trying to make a simple background that highlighted 
 a dark blue background. I loved the look, it was simple not incredibly distracting, but still pretty. The monster was intentionally made into a funny green blob.
 I didn't want to make him human because i wanted him to kind of scuttle around with a lot of legs. The animation ended up being exactly what I wanted. The orbs
 were simple paturn shapes that I thought fit the theme of the game well.
+
+extra Sources: https://rexrainbow.github.io/phaser3-rex-notes/docs/site/loader/
 */
 
 'use strict';

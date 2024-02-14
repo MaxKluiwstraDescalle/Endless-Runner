@@ -31,10 +31,6 @@ class Menu extends Phaser.Scene{
 
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE)
         keyRESET = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R)
-        //keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT)
-        //keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT)
-        //keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP)
-        //keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN)
         
         menuConfig.color = '#ADD8E6'
         this.add.text(game.config.width/2, game.config.height/2.8,`Previous Run: ${timeSurv} Seconds`, menuConfig).setOrigin(0.5)
