@@ -21,15 +21,17 @@ class Load extends Phaser.Scene{
         this.load.audio('spawn','./assets/spawn.wav')
 
         this.load.image('map', './assets/map.png')
-        this.load.image('orb', './assets/orb.png')
-        this.load.spritesheet('mon','./assets/mon.png', {
+        this.load.image('ship', './assets/ship.png')
+        this.load.image('cursor', './assets/crosshair.png')
+        this.load.image('hud','./assets/hud.png')
+        /*this.load.spritesheet('mon','./assets/mon.png', {
             frameWidth: 32,
             frameHeight: 32,
-        })
+        })*/
     }
 
     create(){
-        this.anims.create({
+        /*this.anims.create({
             key: 'walk-down',
             frameRate: 8,
             repeat: -1,
@@ -52,7 +54,7 @@ class Load extends Phaser.Scene{
             frameRate: 8,
             repeat: -1,
             frames: this.anims.generateFrameNumbers('mon',{start: 12, end: 15})
-        })
+        })*/
 
         this.scene.start('menuScene')
     }

@@ -16,7 +16,7 @@ class GameOver extends Phaser.Scene{
             fixedWidth: 0
         }
         //this.bgMusic.stop()
-        this.add.text(game.config.width/2, game.config.height/5 - borderUISize - borderPadding, `Game Over! Survival time: ${timeSurv}s`, menuConfig).setOrigin(0.5)
+        this.add.text(game.config.width/2, game.config.height/5 - borderUISize - borderPadding, `Game Over! Points:`, menuConfig).setOrigin(0.5)
         
         menuConfig.fontSize = '70px'
         menuConfig.color= '#ADD8E6'

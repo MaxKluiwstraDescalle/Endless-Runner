@@ -1,4 +1,4 @@
-class Mon extends Phaser.Physics.Arcade.Sprite{
+class Cross extends Phaser.Physics.Arcade.Sprite{
     constructor(scene, x, y, texture, frame, direction){
         super(scene, x, y, texture, frame)
 
@@ -9,9 +9,9 @@ class Mon extends Phaser.Physics.Arcade.Sprite{
         this.body.setCollideWorldBounds(true)
 
         this.direction = direction
-        this.monVelocity = 400
+        this.crossVelocity = 400
 
-        scene.monFSM = new StateMachine('idle',{
+        scene.CrossFSM = new StateMachine('idle',{
             idle: new IdleState(),
             move: new MoveState()
         },[ scene, this])
@@ -21,13 +21,13 @@ class Mon extends Phaser.Physics.Arcade.Sprite{
 
 
 class IdleState extends State{
-    enter(scene,mon){
-        mon.setVelocity(0)
-        mon.anims.play(`walk-${mon.direction}`)
-        mon.anims.stop()
+    enter(scene,cross){
+        cross.setVelocity(0)
+        cross.anims.play(`walk-${cross.direction}`)
+        cross.anims.stop()
     }
 
-    execute(scene, mon){
+    execute(scene, cross){
         const {left, right, up, down} = scene.keys
         if(left.isDown || right.isDown || up.isDown || down.isDown){
             this.stateMachine.transition('move')
@@ -37,7 +37,7 @@ class IdleState extends State{
 }
 
 class MoveState extends State{
-    execute(scene, mon){
+    execute(scene, cross){
         const{left, right, up , down} = scene.keys
         if(!(left.isDown || right.isDown || up.isDown || down.isDown)){
             this.stateMachine.transition('idle')
@@ -46,21 +46,20 @@ class MoveState extends State{
 
         if(up.isDown){
             moveDir.y = -1
-            mon.direction = 'up'
+            cross.direction = 'up'
         }else if(down.isDown){
             moveDir.y = 1
-            mon.direction = 'down'
+            cross.direction = 'down'
         }else if(right.isDown){
             moveDir.x = 1
-            mon.direction = 'right'
+            cross.direction = 'right'
         }else if(left.isDown){
             moveDir.x = -1
-            mon.direction = 'left'
+            cross.direction = 'left'
         }
         //console.log('Hello')
         moveDir.normalize()
-        mon.setVelocity(mon.monVelocity * moveDir.x, mon.monVelocity * moveDir.y)
-        mon.anims.play(`walk-${mon.direction}`, true)
+        cross.setVelocity(cross.crossVelocity * moveDir.x, cross.crossVelocity * moveDir.y)
     }
     
 

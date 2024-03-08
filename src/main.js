@@ -47,8 +47,8 @@ let game = new Phaser.Game(config)
 let borderUISize = game.config.height / 15
 let borderPadding = borderUISize / 3
 
-let timeSurv = 0
+//let timeSurv = 0
 
-let highScore = 0
+//let highScore = 0
 
 let keySPACE, keyRESET//, keyRIGHT, keyLEFT, keyUP, keyDOWN 
